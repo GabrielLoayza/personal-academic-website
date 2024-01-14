@@ -5,4 +5,5 @@ title: Presentación
 
 Esta página utiliza [[MarkDown]], que es muy práctico para desarrollar contenido estructurado.
 
-
+En esta página puedes observar mis:
+[[Publicaciones]]
