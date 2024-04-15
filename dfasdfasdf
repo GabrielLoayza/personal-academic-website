@@ -1,0 +1,2111 @@
+[33mcommit 8197f6f574d3ed3fc0a378c5d6b91505e0969cd4[m[33m ([m[1;36mHEAD -> [m[1;32mv4[m[33m)[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Mon Apr 15 17:01:22 2024 -0500
+
+    Changing Publications to Projects
+
+[33mcommit 8ef5fd1eff8cdbdecd8f54a9af807fb8e0b39781[m[33m ([m[1;31morigin/v4[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Sat Jan 13 22:01:31 2024 -0700
+
+    Quartz sync: Jan 13, 2024, 10:01 PM
+
+[33mcommit 86f4e42923340d93fc779e2bb72d3d42a3526380[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Sat Jan 13 21:46:44 2024 -0700
+
+    Quartz sync: Jan 13, 2024, 9:46 PM
+
+[33mcommit eefdcccf6a8f164b2ce8f5a86235fe65b243abe8[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Sat Jan 13 21:36:17 2024 -0700
+
+    Quartz sync: Jan 13, 2024, 9:36 PM
+
+[33mcommit a794d5642890fec1e65e675c86cc7785a9e213b3[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Sat Jan 13 21:33:37 2024 -0700
+
+    Quartz sync: Jan 13, 2024, 9:33 PM
+
+[33mcommit c0131454a6b99ddac3414a212e5708f7793faee7[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Sat Jan 13 19:33:58 2024 -0700
+
+    Quartz sync: Jan 13, 2024, 7:33 PM
+
+[33mcommit 5e3eac7aa998cf069806f704bfceda78160db60d[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Fri Jan 12 18:50:33 2024 -0700
+
+    Quartz sync: Jan 12, 2024, 6:50 PM
+
+[33mcommit 486443be90bc5de5255f870b2c1f276df69a50dc[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Fri Jan 12 18:45:35 2024 -0700
+
+    Quartz sync: Jan 12, 2024, 6:45 PM
+
+[33mcommit b2279d2c16cc5aa64c640d5052de051025472dbe[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Fri Jan 12 18:27:18 2024 -0700
+
+    Quartz sync: Jan 12, 2024, 6:27 PM
+
+[33mcommit 356e089476d772dd7db4f7b190e4a5513b6264c9[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Fri Jan 12 18:24:27 2024 -0700
+
+    Quartz sync: Jan 12, 2024, 6:24 PM
+
+[33mcommit 1aaacbe28dbf3f737626867df834dc713be65cce[m[33m ([m[1;31mmyfork/v4[m[33m)[m
+Author: GabrielLoayza <loayzapg@gmail.com>
+Date:   Fri Jan 12 11:02:41 2024 -0700
+
+    first step to hosting in github pages
+
+[33mcommit 1a8aedf5f5401d365faf479644723d946c184054[m[33m ([m[1;31mmyfork/main[m[33m)[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Jan 7 15:39:29 2024 -0800
+
+    docs: clarify git only sets modified
+
+[33mcommit a4d6f701bfbe72039d61e14f30155e283544e804[m
+Author: Aaron Pham <29749331+aarnphm@users.noreply.github.com>
+Date:   Sun Jan 7 14:47:53 2024 -0500
+
+    fix(showcase): markdown link (#673)
+
+[33mcommit 60017164ad5841e3e88fbdb7d16ccc40577336df[m
+Author: Aaron Pham <29749331+aarnphm@users.noreply.github.com>
+Date:   Sun Jan 7 14:35:52 2024 -0500
+
+    chore: add my garden 😃 (#672)
+
+[33mcommit 5ccc48a1728d68ceb53aeea45a451ecfc4142d52[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Jan 4 11:04:57 2024 -0800
+
+    style: div -> li for explorer
+
+[33mcommit 707124cbd6f0ae54924163b6a743506ece681617[m
+Author: Nate Silva <nate@natesilva.com>
+Date:   Tue Jan 2 15:19:19 2024 -0800
+
+    fix: allow publish property to be a string (ExplicitPublish) (#667)
+    
+    * fix: allow publish property to be a string (ExplicitPublish)
+    
+    Previously, the ExplicitPublish filter would publish if the `publish`
+    property was truthy.
+    
+    The filter expects the `publish` property to be a boolean:
+    
+    ```
+    ---
+    publish: true
+    ---
+    ```
+    
+    However, Obsidian only shows the above if you are viewing a page in
+    “Source” mode.
+    
+    If you are not in Source view, and you choose Three Dots Menu (...),
+    “Add file property”, you will get a string, not a boolean. It seems
+    likely that many users will do this and get:
+    
+    ```
+    publish: "true"
+    ```
+    
+    Notice that `"true"` is a string, not the boolean value `true`. If the
+    user changes this to `"false"`, the page will still be published:
+    
+    ```
+    publish: "false"
+    ```
+    
+    That is because the string value `"false"` is truthy.
+    
+    This PR does the following:
+    
+    - Allows the `publish` property to be either a boolean or a string.
+    - If it’s a string, it’s considered `true` if the string is `"true"`
+      (not case-sensitive; it will also work if it is `"True"`, `"TRUE"`,
+      etc.)
+    - Guarantees that the returned value from `shouldPublish` is a `boolean`
+      -- previously it could be any truthy value even though it was cast to
+      `boolean`
+    
+    * style: use double-quotes everywhere
+    
+    * style: format according to project style guide
+
+[33mcommit 88194ac348222f9e3deed92f6e149da23a644311[m
+Author: jeff <smartmu@gmail.com>
+Date:   Tue Jan 2 13:49:14 2024 -0500
+
+    feat: allow embedding youtube videos with the obsidian markdown syntax (#665)
+    
+    * Add option to allow embedding YouTube videos with Obsidian Markdown syntax
+    
+    * Update Obsidian compatability doc page
+    
+    * Switch to converting YT links as an html plugin
+
+[33mcommit 65d75b8bdcd7376916aed715d5e73732125589fb[m
+Author: Olivér Falvai <ofalvai@gmail.com>
+Date:   Tue Jan 2 18:23:28 2024 +0100
+
+    feat: support modification date reading from parent git repo (#661)
+    
+    * feat: support modification date reading from parent git repo
+    
+    * Print warning
+    
+    * Fix formatting
+    
+    * Update quartz/plugins/transformers/lastmod.ts
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit 6e3484411495987a1a78c55c714a45e921dda372[m
+Author: Mats Fangohr <83273529+MatsFangohr@users.noreply.github.com>
+Date:   Tue Jan 2 17:03:05 2024 +0100
+
+    feat: embed webp images (#666)
+
+[33mcommit b33f13ccaf4ec14a94ee0ee467dda04cf4981d00[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Jan 1 14:20:27 2024 -0800
+
+    fix: dont show last page if folder
+
+[33mcommit 002bbc37b140d177276cd655049e7de2072fa537[m
+Author: Jimmy He <417267+hhe@users.noreply.github.com>
+Date:   Mon Jan 1 14:14:37 2024 -0800
+
+    fix: Continue setup even if a file to delete is not found (#663)
+    
+    * Continue setup even if a file to delete is not found
+    
+    For various reasons, `.gitkeep` may be deleted already.
+    
+    (In my case, even though I followed the [Getting Started](https://quartz.jzhao.xyz) instructions exactly, my first run resulted in an `fatal: 'upstream' does not appear to be a git repository`)
+    
+    If we try to delete `.gitkeep` again and don't ignore `ENOENT`, then the whole setup fails.
+    
+    * Use fs.existsSync
+
+[33mcommit e603d7396b2eae90d1edb055e32fef33a5e77028[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Jan 1 08:58:25 2024 -0800
+
+    fix: parse emoji tags in body (closes #659)
+
+[33mcommit 40cfccdc77e1734e12537359a70e71b74d88ec72[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 28 15:07:59 2023 -0800
+
+    style: relative back on pre
+
+[33mcommit e758cbe1ee7a2bb128cbd95fd6d3cdcd34623800[m[33m ([m[1;33mtag: v4.1.4[m[33m)[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 28 14:00:15 2023 -0800
+
+    pkg: bump version to 4.1.4
+
+[33mcommit 4b6c7aeffe6028f68af7704d7928584a46d3bb1f[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 28 13:56:20 2023 -0800
+
+    feat: lazyLoading specifier in link transformer
+
+[33mcommit e277ed5c307cd263b0f07dfece45946c3fe195d9[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 28 08:54:04 2023 -0800
+
+    fix: use joinSegment instead of joining via slash in sitemap (closes #658)
+
+[33mcommit 68f53352e715861b155bd11baffe9f6e3032ff1e[m
+Author: Olivér Falvai <ofalvai@gmail.com>
+Date:   Thu Dec 28 17:49:35 2023 +0100
+
+    feat: Self-hosted Plausible support (#656)
+    
+    * Self-hosted Plausible support
+    
+    * Remove leftover import
+
+[33mcommit 359484c139c074e60f188616b3f6435cde46c42e[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 28 08:48:14 2023 -0800
+
+    fix: more robust tags parsing
+
+[33mcommit dafc9f318e29ab444c12e84564b38b5318a13d78[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 28 08:02:04 2023 -0800
+
+    feat: minify js scripts (closes #655) (#657)
+
+[33mcommit e1b6a0014cabf07ddc7e7931912aece471959224[m
+Author: Sidney <85735034+sidney-eliot@users.noreply.github.com>
+Date:   Thu Dec 28 12:04:15 2023 +0100
+
+    docs: add explorer example for advanced `sortFn` (#564)
+    
+    * Added doc example to explorer sortFn
+    
+    * Prettier fixed formatting
+    
+    * Let Prettier fix the formatting of the entire markdown file
+    
+    * Updated example
+    
+    * Added extra commentary and fixed example
+    
+    * Update docs/features/explorer.md
+    
+    * doc fixes
+    
+    * docs: remove leftover TODO
+    
+    * docs: move example to `advanced`
+    
+    ---------
+    
+    Co-authored-by: Sidney <85735034+Epicrex@users.noreply.github.com>
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    Co-authored-by: Ben Schlegel <ben5.schlegel@gmail.com>
+
+[33mcommit 233d4b2f2c7dda62355382fb02760822c01e9ca2[m
+Author: Hydrophobefireman <bhavesh.pareek36@gmail.com>
+Date:   Thu Dec 28 05:20:07 2023 -0500
+
+    fix: fix invalid html output (#642)
+    
+    * fix: fix invalid html output
+    
+    * fix: HTML structure w/ nested <li>
+
+[33mcommit 504b44716240bb3fb9a077a1acaa3dc1059e2c1e[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 27 16:44:14 2023 -0800
+
+    fix: use slugs instead of title as basis for explorer (#652)
+    
+    * use slugs instead of title as basis for explorer
+    
+    * fix folder persist state, better default behaviour
+    
+    * use relative path instead of full path as full path is affected by -d
+    
+    * dont use title in breadcrumb if it's just index lol
+
+[33mcommit 63bf1e14b5d3ef310e560b8257975b72a37ac614[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 20 19:55:20 2023 -0800
+
+    style: remove relative from base pre
+
+[33mcommit be76da9e95b6744f4934280cb85504371ccc1244[m
+Author: migueltorrescosta <migueltorrescosta@users.noreply.github.com>
+Date:   Wed Dec 20 20:09:48 2023 +0000
+
+    docs: Add CollapsedWave to showcase.md (#643)
+    
+    Thank you so much for a beautiful setup
+
+[33mcommit 8fe37cc5e526a48bf14178207d16a6b7d9fbf536[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 20 10:05:00 2023 -0800
+
+    docs: update issue template
+
+[33mcommit 2e9896c893602dfab6a1b564800c6354b802cece[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 20 09:52:17 2023 -0800
+
+    fix: deep clone before relativizing urls in transclude (closes #640)
+
+[33mcommit 7bcf27241ff30d08e937b47d9fc113b781f7cebe[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Dec 19 19:03:40 2023 -0800
+
+    fix: latex before syntax highlighting
+
+[33mcommit b44a79eebaf1664512ef5ff4e3246b3a6a416ff4[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Dec 19 11:40:59 2023 -0800
+
+    fix: wikilinks should allow external links (closes #639)
+
+[33mcommit 9b9d86474bedd244daa45f4d76704b182d6a99ad[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Dec 19 11:01:55 2023 -0800
+
+    fix: mermaid rendering fix from upstream
+
+[33mcommit 4c83251f8ed5babad4be239f2f4c2d23233b5098[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Dec 19 09:07:52 2023 -0800
+
+    feat: -v flag should log exact error on parse failure
+
+[33mcommit 984ab1c578e166922841ea3891fb4f8cbe87c4ad[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Dec 18 23:13:37 2023 -0800
+
+    fix: change backtick to regular after making script loading less hacky
+
+[33mcommit 443cd53a1acf33ac0aaa34e0e75760d3da912d18[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Dec 18 23:09:49 2023 -0800
+
+    fix: mermaid rendering broken after rehype-pretty-code bump (closes #638)
+
+[33mcommit 5152d32fbd80d1d900aee69d90048a28d559867d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Dec 18 09:49:55 2023 -0800
+
+    pkg: bump version to 4.1.3
+
+[33mcommit ea6208c1f0de232ebe7947f257641aab9577ddb7[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Dec 18 09:48:40 2023 -0800
+
+    deps: bump everything (closes #635) (#636)
+    
+    * deps: bump ws
+    
+    * deps: bump lightningcss
+    
+    * deps: workerpool
+    
+    * deps: various types
+    
+    * deps: chalk
+    
+    * deps: globby
+    
+    * deps: preact
+    
+    * deps: tsx
+    
+    * deps: @floating-ui/dom
+    
+    * deps: esbuild
+    
+    * deps: types + prettier
+    
+    * deps: rimraf, typescript
+    
+    * deps: remark/rehype/unified ecosystem
+    
+    * format
+
+[33mcommit 78b33fc2fb2d2b30e0cdf6fbd50c74efceac1c56[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 16:46:17 2023 -0800
+
+    fix: release build lock before client refresh
+
+[33mcommit d2be097b7698c2548915c386aab07ceb320855aa[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 15:09:51 2023 -0800
+
+    feat: include tag hierarchies in tag listing, sort tag listing
+
+[33mcommit ad1f964a5f6e290d61979a372de18ad77e24351c[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 13:19:03 2023 -0800
+
+    docs: graph view tag options
+
+[33mcommit 150050f379402b052628c436623aa72b1fd54b8b[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 12:59:03 2023 -0800
+
+    docs: agentic computing in quartz philosophy
+
+[33mcommit d979331dc781e92296166e50512c4aebd7aa66a5[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 12:54:52 2023 -0800
+
+    fix: remove whitespace unicode from tag regex
+
+[33mcommit 972cf0a887fcafa92bd317dd990ea57f2a4d054d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 12:27:19 2023 -0800
+
+    feat: support emoji tags (closes #634)
+
+[33mcommit 14e6b13ff1f087e13e34aa150023a308d47d01b1[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 17 09:57:46 2023 -0800
+
+    docs: dont pull on first sync
+
+[33mcommit 3c01b92cc46589ac4607d994b49f1327dba3f38e[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Dec 16 11:04:18 2023 -0800
+
+    docs: note embeds and update git hint
+
+[33mcommit ed9bd43d9f5e6eb29b86646a4df8d41a53ee316d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Dec 15 12:18:29 2023 -0800
+
+    docs: update showcase
+
+[33mcommit c35818c336e64e43c54766a670e03cd165b59503[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Dec 14 16:48:09 2023 -0800
+
+    fix: set upstream in sync handler, cleanup docs around setting up github
+
+[33mcommit a464ae50290b9221fa3f1ce8653c62edfc0091f7[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 13 16:47:22 2023 -0800
+
+    fix: format
+
+[33mcommit 66e297c0eacca69da7b88be2a1377e8c1aba6720[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 13 16:40:24 2023 -0800
+
+    css: make article no longer relative to prevent z-fighting
+
+[33mcommit 4442847b37e6532742e246fedb43fd3d60384545[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Dec 13 16:07:44 2023 -0800
+
+    fix: internal link selector specificity
+
+[33mcommit e6b5ca33c97575a43480fa00b17362ec43dc0313[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Dec 11 15:34:21 2023 -0800
+
+    re-add gitkeep to content
+
+[33mcommit 1b92440009965853241d6db44ae233cf62522a75[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Dec 11 10:38:55 2023 -0800
+
+    fix: better error handling on spawnsync failures
+
+[33mcommit c6546903f28cf49c573857c620aecc57562c34da[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 10 06:19:29 2023 -0800
+
+    fix: reland string coercion in title
+
+[33mcommit 2c69b0c97d40f76363d20478cb799ce4b7518e56[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Dec 8 16:55:40 2023 -0800
+
+    fix: frontmatter coercion (empty string is falsy)
+
+[33mcommit a7e20804f5fe68dff7b71f3065f60e2147d633ba[m
+Author: Sam Stokes <me@samstokes.co.uk>
+Date:   Mon Dec 4 18:18:47 2023 -0800
+
+    feat: Support space-delimited tags in `FrontMatter` transformer (#620)
+
+[33mcommit 5196f3b9db159c8d06af3f610d854631d2b07537[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 3 23:25:35 2023 -0800
+
+    docs: github setup and hosting fixes
+
+[33mcommit f0ec6c9b926dffd0e96b7d53a048d686f6414858[m
+Author: Jimin Kim <88694161+jmkim0@users.noreply.github.com>
+Date:   Mon Dec 4 07:56:30 2023 +0900
+
+    fix: tag index page (#616)
+
+[33mcommit 9c88d5967fee49d9e69b0e5dd22ca3bc44f9a12e[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Dec 3 09:22:16 2023 -0800
+
+    fix: don't show popovers on heading anchors
+
+[33mcommit 0d8c025d6a591c158801887a1858d7ebdf7149e8[m[33m ([m[1;33mtag: v4.1.2[m[33m)[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Dec 2 17:00:06 2023 -0800
+
+    deps: version bump
+
+[33mcommit 54b4a5567c8c12d4d00a4f782f4a597a2433be73[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Dec 2 16:55:38 2023 -0800
+
+    fix: fmt
+
+[33mcommit 610b04406f635cfb3c2f958f61ce716de21b04f4[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Dec 2 16:52:44 2023 -0800
+
+    fix: incorrect test
+
+[33mcommit 82bd08d14a45f9b1c3d48000543562fa0d51f13a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Dec 2 16:50:55 2023 -0800
+
+    fix: transcludes and relative paths
+
+[33mcommit 649090de1b7a8a8849074b8e1bfd938943e1b028[m
+Author: mancuoj <1337381768@qq.com>
+Date:   Sat Dec 2 14:59:02 2023 +0800
+
+    docs: add deploy with netlify (#613)
+
+[33mcommit b5fec6c87f2060884425607c0c4de5eededbb30f[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Dec 1 09:00:47 2023 -0800
+
+    feat: allow popovers on intrapage links (closes #243)
+
+[33mcommit 0d314db1f8d6438e6e721e1c37c65fe84f193acf[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 29 10:50:26 2023 -0800
+
+    fix(style): overflow on toc
+
+[33mcommit 660aae62e09ea1f5ec957149b78bfd01a85bd79f[m
+Author: Odaimoko <934854676@qq.com>
+Date:   Tue Nov 28 15:05:18 2023 +0800
+
+    docs: add Imk&Cc's homepage to showcase.md (#595)
+    
+    * add Imk&Cc's homepage to showcase.md
+    
+    * Update showcase.md
+    
+    * Update showcase.md
+
+[33mcommit 9a599aebeada7f95170dac98c3f30023d9e7453f[m
+Author: Rune Antonsen <rune.antonsen@gmail.com>
+Date:   Mon Nov 20 17:28:16 2023 +0100
+
+    feat(breadcrumbs): add option to hide current page (#601)
+    
+    * feat(breadcrumbs): add option to hide current page
+    
+    * Remove debug lines
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: ruant <ruant@ruant.net>
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit 296c1cf83f587706d23ffc2f14962628d0534953[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 18 18:46:58 2023 -0800
+
+    fix: spa shouldn't use popover script directly
+
+[33mcommit 516d9a27e7e2c08efdf24857b03f1831dbaf7da7[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 18 18:27:44 2023 -0800
+
+    fix: explicit undefined check in header transclude
+
+[33mcommit 6a05fa777c3830631d8aeb16bdda287a1fea3b80[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Nov 17 14:00:49 2023 -0800
+
+    fix: bad transform in wikilink pre-transform (closes #598)
+
+[33mcommit 3f0be7fbe470500a57c457ad1d1c039175330697[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Nov 17 10:46:23 2023 -0800
+
+    fix: check content-type before applying spa patch (closes #597)
+
+[33mcommit ea08c0511a084f9ed77d1503847f4834046e2695[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Nov 17 10:29:07 2023 -0800
+
+    fix: dont run explorer scripts on non-explorer pages (closes #596)
+
+[33mcommit 727b9b5d72464d26427a8bdf3ab06e522e67b21c[m
+Author: Matt Vogel <mainmoniker@googlemail.com>
+Date:   Fri Nov 17 13:23:39 2023 -0500
+
+    feat: add class `alias` to aliases (#585)
+
+[33mcommit 50f0ba29a247c81b5f29d290e54f7e1aabb18ab3[m
+Author: Zijing Zhang <50045289+pluveto@users.noreply.github.com>
+Date:   Fri Nov 17 07:31:20 2023 +0800
+
+    feat: cname emitter (#590)
+    
+    * feat: cname emitter
+    
+    * feat: impl cname.ts
+    
+    * Update cname.ts
+    
+    * Update index.ts
+    
+    * Update cname.ts
+    
+    * Update cname.ts
+    
+    * Update cname.ts
+    
+    * Update cname.ts
+
+[33mcommit 95b1141b9df7b8de3fdb893454326daf752d7f66[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 15 20:35:45 2023 -0800
+
+    fix: include anchor when normalizing urls for spa/popovers
+
+[33mcommit a26eb59392c617bf567df23ee45d16b3fce69da3[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 15 20:13:28 2023 -0800
+
+    feat: scrub link formatting from toc entries
+
+[33mcommit 5befcf4780a9f1c2872dead5d25100d47452ea1e[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 15 19:32:25 2023 -0800
+
+    fix: format
+
+[33mcommit f861a7c160a0b3be76a16c5bf2ea1a8d076a9662[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 15 19:31:18 2023 -0800
+
+    fix: regression where clicking anchors on the same page wouldn't set the anchor in the url
+
+[33mcommit 06426c8f7e87e9476e3ede9f9d15771db601e3e6[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 15 19:27:54 2023 -0800
+
+    feat: support repeated anchor tag (closes #592)
+
+[33mcommit 8fc7b9f4c68bb8c41a156e92cfbddf3144678dcc[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 15 09:43:30 2023 -0800
+
+    feat: deref symlinks when copying static assets (closes #588)
+
+[33mcommit 2de48b267a8f2d6ed0461d2febc266559c2d8d47[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Nov 14 20:01:48 2023 -0800
+
+    fix: set htmlAst after walking tree in ofm (closes #589)
+
+[33mcommit 76f2664277e07a7d1b011fac236840c6e8e69fdd[m[33m ([m[1;33mtag: v4.1.1[m[33m)[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Nov 13 22:57:05 2023 -0800
+
+    versioning: bump to v4.1.1
+
+[33mcommit 74777118a7fd19e4a296706c2a4b5fdca546c4fa[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Nov 13 22:51:40 2023 -0800
+
+    feat: header and full-page transcludes (closes #557)
+
+[33mcommit 8223465bda1e7b6085a9752ead806be85ff58b57[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Nov 12 14:33:19 2023 -0800
+
+    fix: make :has img selector direct
+
+[33mcommit cf6ab9e9333b5f76cb9e06f6687f2b4f8fbe91bd[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Nov 12 14:27:53 2023 -0800
+
+    feat: option to specify npx quartz sync message (closes #583)
+
+[33mcommit 74c63e448e28d9766f7ec631aac2645384b0975f[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 21:13:10 2023 -0800
+
+    fix(style): dont internal-link highlight when image (closes #581)
+
+[33mcommit 43d638a6de5a8a11c1a719c596b07ea957c7329a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 21:06:37 2023 -0800
+
+    perf: compute mapping of folder name to file data for faster breadcrumbs
+
+[33mcommit d1551872ffeb08c34f59dc2042b43562c499b620[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 20:46:57 2023 -0800
+
+    fix: check if popover exists after fetching and before inserting
+
+[33mcommit 275bea3051a6f2a7da65fef6dccc7cc52a0a15e3[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 20:46:29 2023 -0800
+
+    style + cfg: resolve breadcrumb titles by default and change arrow character
+
+[33mcommit bc02791734aa969ff388c5f7068e402bd0e3862a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 20:27:51 2023 -0800
+
+    fix: .date.getTime() based sort
+
+[33mcommit bf603c49c2edaa5fcbe42479421a336dcacf92b9[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 12:08:54 2023 -0800
+
+    fix: sort rss feed by date
+
+[33mcommit f67356c3d2d609a8a6b674ac650fc41d6dfb4cc7[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 12:02:34 2023 -0800
+
+    lint: format
+
+[33mcommit 5d666d1860be721c573ebd24cb82d210a8567bbf[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 11:59:05 2023 -0800
+
+    fix: normalize relative urls (closes #569)
+
+[33mcommit 22b7cf135e8b031550553947c48aa0dc00b3abbd[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 11:41:44 2023 -0800
+
+    types: cast in jsx.tsx to avoid @ts-ignore
+
+[33mcommit 50a87d0d8673dbce6ebafef83f71f197df9bc196[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 11:39:56 2023 -0800
+
+    style: scrollable tables
+
+[33mcommit 134b6ed582d6ce9d8fb8f1e58d2bae89c07c2d5d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 10:11:31 2023 -0800
+
+    fix: anchors links shouldnt cause reload (closes #574)
+
+[33mcommit 99e8f5944fdd83110fbac4c9edc37cdcaf2c25f7[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 11 09:56:30 2023 -0800
+
+    fix: trailing slash aliases (closes #577)
+
+[33mcommit e9f4e28a2d3e0b529586ddb5a50680a6e66412f3[m
+Author: Yes365 <ninfovores365@gmail.com>
+Date:   Fri Nov 10 11:44:16 2023 +0800
+
+    fix: adapt vercel cleanurls (#487)
+    
+    Co-authored-by: Harrison <Harrison@fanruan.com>
+
+[33mcommit 2a6b9a9ea01e8e6a80fe51d01dc865595b67a612[m
+Author: Niklas Schröder <33390735+lnschroeder@users.noreply.github.com>
+Date:   Tue Nov 7 18:16:48 2023 +0100
+
+    docs: fix property name for ToC toggle (#573)
+
+[33mcommit e806c30fa1a7ab941969da01c05ac4adeeeeeb9e[m
+Author: Mau Camargo <52770775+camargomau@users.noreply.github.com>
+Date:   Sun Nov 5 13:30:10 2023 -0600
+
+    docs: Add Mau Camargo's Notkesto to showcase (#570)
+
+[33mcommit aac7b7e97d32580f6a9bd974b8a9068e5218ab9c[m
+Author: Anson Yu <ansonyu24@gmail.com>
+Date:   Sat Nov 4 17:20:16 2023 -0400
+
+    docs: Update making plugins.md (#567)
+    
+    :)
+
+[33mcommit 101e9946bddd053a42d269e19e35feae46fe4305[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Nov 4 12:11:42 2023 -0700
+
+    feat: add collapseByDefault option to TableOfContents (closes #566)
+
+[33mcommit a62a97c7abcabea4509760e5af957eed66fa0755[m
+Author: Emil Rofors <emirof@gmail.com>
+Date:   Fri Nov 3 16:40:43 2023 -0700
+
+    docs: add GitLab pages CI (#549)
+    
+    * add .gitlab-ci.yml
+    
+    * move GitLab CI to hosting.md
+    
+    * remove extra folder name
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * remove test from gitlab instructions
+    
+    * run prettier
+    
+    ---------
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit 923b72fb67cf3ee9842df630feaed72644470074[m[33m ([m[1;33mtag: v4.1.0[m[33m)[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Nov 1 10:03:45 2023 -0700
+
+    feat: auto-tag releases (closes #560)
+
+[33mcommit 05a1c34c6f6973eebcbcc50f50b64c2a0d62e8fa[m
+Author: Florence <59734957+Pydes-boop@users.noreply.github.com>
+Date:   Wed Nov 1 17:57:32 2023 +0100
+
+    docs: remove dead link (#561)
+
+[33mcommit 06ccb89cd7d5a3cade1eb5c2155b9b06e5395b0b[m
+Author: Blue Rose <134471273+bluerosegarden@users.noreply.github.com>
+Date:   Tue Oct 31 15:53:49 2023 -0500
+
+    docs: clarifications about globs (#559)
+    
+    * Add note about fast-glob
+    
+    * Add warning about non-markdown files
+    
+    Also added a glob pattern to filter out all non-markdown files outside of a specified folder.
+    
+    * run npm format
+    
+    ---------
+    
+    Co-authored-by: wych <wychwitchcraft@gmail.com>
+
+[33mcommit 01fc8e46409ee0fb7311f212726113d35aced82d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Oct 25 09:40:43 2023 -0700
+
+    fix: disable semi-broken flexsearch cache
+
+[33mcommit 7c01e8dde06abb1a80118b5eddce3e238830ede0[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Oct 22 09:54:12 2023 -0700
+
+    feat: openLinksInNewTab option for link transformer
+
+[33mcommit b7ae7a99dbd40ffc852642202031b29e98304c1f[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Oct 21 21:12:11 2023 -0700
+
+    fix: styling for nested popover tag in page list
+
+[33mcommit 60b3bc34cb07b5bec87cbd667ea9f804ff14cf3c[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Oct 21 21:05:46 2023 -0700
+
+    fix: catch html to jsx errors (closes #547)
+
+[33mcommit dc834015d02adcc7edb119fb5224a2a86c614142[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Oct 21 20:27:49 2023 -0700
+
+    fix(style): tag float orientation for long tags on page listing
+
+[33mcommit 1e357ef5ac85ab55ad19f832513f5ca7a7e54a52[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Oct 21 20:09:49 2023 -0700
+
+    fix(style): prioritize base and custom scss over component css
+
+[33mcommit 54e722a55d58f4bab86184ffc970159628fa6967[m
+Author: freenandes <42041153+freenandes@users.noreply.github.com>
+Date:   Wed Oct 18 03:43:41 2023 +0100
+
+    docs: Update showcase.md (#540)
+    
+    changed URL
+
+[33mcommit 86d16b12a224d125ba469f91e885eedf97a9dfe8[m
+Author: Thomas <65691606+NotTacoz@users.noreply.github.com>
+Date:   Wed Oct 18 10:43:20 2023 +0800
+
+    docs(explorer): Fixed small typo with extra } in explorer.md (#541)
+
+[33mcommit ed971800c0a683f7096922fee0a6901250e239ae[m
+Author: freenandes <42041153+freenandes@users.noreply.github.com>
+Date:   Tue Oct 17 16:58:28 2023 +0100
+
+    Update showcase.md (#539)
+
+[33mcommit af9ddadc4de513f2bbaf75f70079970215ed6406[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Oct 14 13:45:56 2023 -0700
+
+    fix(css): import base from custom instead of the other way around (#536)
+
+[33mcommit da0a062c05db18d8c1521661ac0ab735abff3c3f[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Oct 8 09:59:18 2023 -0700
+
+    feat: docker support for v4 (closes #530)
+
+[33mcommit f66d2c23aca2944abcb1a6e3d83977a9b2edf37a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Oct 8 09:15:06 2023 -0700
+
+    fix: ctrl+click with spa enabled
+
+[33mcommit 3268d45a20fbead24f3a111064364574408aa926[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Oct 5 13:48:52 2023 -0700
+
+    css: make article relative
+
+[33mcommit afa163f2fe9c52d4b3bf1a2e4d48887916b67c24[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Thu Oct 5 13:30:06 2023 -0700
+
+    style: styling for codeblocks without langs (#527)
+
+[33mcommit cec4877adb7e89f4d4e0a442e82655e0d35dbe16[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Thu Oct 5 18:19:56 2023 +0200
+
+    fix(breadcrumbs): problem with folder whitespace (#522)
+    
+    * fix(breadcrumbs): problem with folder whitespace
+    
+    use slugs for folder hrefs so folder paths get resolved properly
+    
+    * feat: only use `slug` for constructing crumbs
+    
+    * fix: remove capitalization
+
+[33mcommit cf0c090e3c5af86097e2460b00adc52ef8555e9d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Oct 4 09:23:56 2023 -0700
+
+    specify minimum npm version
+
+[33mcommit c8f5dbbad3a85749d8a74f5e3e3b222fe547d5d6[m
+Author: Luca Salvarani <lucasalvarani99@gmail.com>
+Date:   Mon Oct 2 02:20:55 2023 +0200
+
+    fix: Fix `Backlinks` not applying the display class (#519)
+    
+    * fix: Fix `Backlinks` not applying the display class
+    
+    Fix #518
+    
+    * fix: Apply `displayClass` to all layout components
+    
+    * refactor: Use same style
+    
+    * fix: Remove `undefined` class using coalescing operator
+
+[33mcommit ab5efac75fb0f20afe74bef33a2cf7e9ba0ba40f[m
+Author: bfahrenfort <59982409+bfahrenfort@users.noreply.github.com>
+Date:   Sun Oct 1 11:47:22 2023 -0500
+
+    Fix: RSS title escaping (#521)
+    
+    * Fix title escaping
+    
+    * npm run format
+
+[33mcommit 2f99339dcf93ef50b766263297785a32d9c35250[m
+Author: Hrishikesh Barman <geekodour@users.noreply.github.com>
+Date:   Sat Sep 30 00:05:26 2023 +0530
+
+    feat: add transformations for latex in oxhugofm (#510)
+    
+    ox-hugo currently supports the following syntax for latex equations:
+    - https://orgmode.org/manual/LaTeX-fragments.html
+    - https://ox-hugo.scripter.co/doc/equations
+    
+    This syntax is supported by mathjax as is mentioned in the ox-hugo documentation.
+    
+    But quartz uses remark-math which has some issues with the \( \) syntax.
+    See https://github.com/remarkjs/remark-math/issues/39
+    
+    This change adds few more transformations to the OxHugoFlavouredMarkdown
+    plugin, which makes a best effort conversion of this syntax into what
+    the Quartz Latex transformer plugin supports.
+    
+    With these changes, the generated files show latex formatting with
+    default quartz configuration.
+    
+    Sidenote on `\_` escape by ox-hugo:
+    
+    ox-hugo escapes, _ using \_, we match against it after we transform
+    equations into what quartz supports($$ and $).
+    
+    This could be achieved using lookaround like regex as follows
+    ```js
+    (?<=(\$|\$\$)[\s\S]*) -> Positive lookbehind for $ or $$
+    \\_ -> Matches \_
+    (?=[\s\S]*(?:\1)) Positive lookahead for $ or $$ if matched
+    const escapedUnderscoreRegex = new RegExp(/(?<=(\$|\$\$)[\s\S]*)\\_(?=[\s\S]*(?:\1))/, "g")
+    ````
+    
+    But since lookahead/behind can slow things down on large files, we just
+    look up all equations with $ and $$ delimiters and then try replacing \_
+
+[33mcommit 5232d09af520e12bc421cf19ae5d231a7e36cd4d[m
+Author: ArtfulAzeria <146041757+ArtfulAzeria@users.noreply.github.com>
+Date:   Fri Sep 29 20:17:48 2023 +0200
+
+    feat: Better and more responsive tag behavior (#515)
+    
+    * fix(explorer): default sortFn implementation (#511)
+    
+    * fix: use `numeric` + `base` for localeCompare
+    
+    * docs(explorer): update default sortFn
+    
+    * fix: better and more responsive tag behavior
+    
+    * tags css moved to TagList.tsx
+    
+    * used npm run format
+    
+    * merged tag declarations
+    
+    ---------
+    
+    Co-authored-by: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+
+[33mcommit 0138085c16856d20d1d2cad5670f1f61c8e500d1[m
+Author: Catchears <57631841+Catchears@users.noreply.github.com>
+Date:   Fri Sep 29 17:19:10 2023 +0200
+
+    docs: fix typo in breadcrumbs documentation (#513)
+
+[33mcommit 0b61f6fbfd20556102ce23444ae7eb9348472952[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Fri Sep 29 10:26:15 2023 +0200
+
+    feat: implement breadcrumb component (#508)
+    
+    * feat: implement breadcrumbs
+    
+    * style: fix styling, move breadcrumbs to top
+    
+    * refactor: move `capitalize to `lang.ts``
+    
+    * refactor: clean breadcrumb generation
+    
+    * feat: add options to breadcrumbs
+    
+    * feat: implement `resolveFrontmatterTitle`
+    
+    * feat: add `hideOnRoot` option
+    
+    * feat(consistency): capitalize every crumb
+    
+    * style: add `flex-wrap` to parent container
+    
+    * refactor: clean `Breadcrumbs.tsx`
+    
+    * feat(accessibility): use `nav`, add aria label
+    
+    * style: improve look in popovers by adding margin
+    
+    * docs: write docs for breadcrumb component
+    
+    * refactor: collapse `if` condition for hideOnRoot
+    
+    * chore: add todo for perf optimization
+    
+    * docs: update introduction
+
+[33mcommit d4c122646ccd6fc989b4436e16b2dffdc931dee6[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Thu Sep 28 17:39:44 2023 +0200
+
+    fix(explorer): default sortFn implementation (#511)
+    
+    * fix: use `numeric` + `base` for localeCompare
+    
+    * docs(explorer): update default sortFn
+
+[33mcommit d22c3c107a9c6422ef251bd1076ddd9c4fe47a42[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Mon Sep 25 18:15:55 2023 -0700
+
+    fix: coerce title to string
+
+[33mcommit 697bffdb8b1bef143823f77a118de90286fe325a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Sep 24 14:47:30 2023 -0700
+
+    fix: treat the 0 time as invalid too
+
+[33mcommit ea5742c328c97a20f7add4994aa7e443fc6f7f39[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Sep 24 10:31:47 2023 -0700
+
+    fix: mermaid copy source position
+
+[33mcommit 95eec5b49db53801e23b4b47778cb0b6153db83f[m
+Author: Chad Lee <git@chadly.net>
+Date:   Sun Sep 24 12:27:42 2023 -0500
+
+    add site to showcase (#504)
+
+[33mcommit c5b9137f12ea372d9196e41ffffc91eee7ad772e[m
+Author: Vince Imbat <96913392+vinceimbat@users.noreply.github.com>
+Date:   Sat Sep 23 10:39:02 2023 +0800
+
+    docs: Adds Vince Imbat to showcase (#501)
+
+[33mcommit 13c867322629f5ee59c54b95679585b370e1442b[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Sep 22 10:04:37 2023 -0700
+
+    feat: add warning for invalid date format
+
+[33mcommit a897cc1f531844a2e4da36f8712b7aedec0c5824[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Sep 22 09:43:34 2023 -0700
+
+    feat: add warning for missing home page
+
+[33mcommit d93599364a3dd0b46068826cf14ed7b25aa59fc3[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Fri Sep 22 17:20:19 2023 +0200
+
+    docs(showcase): fix pull request redirect link (#500)
+
+[33mcommit fa69c2a5656254251b74dbd5545bef000f67af2f[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Thu Sep 21 19:35:11 2023 +0200
+
+    fix(explorer): increase consistency, explicitly use font-family (#496)
+    
+    * fix(explorer): display name for folders without `index` file
+    
+    * docs(explorer): add section for folder display names
+    
+    * docs(explorer): fix broken wikilink
+    
+    * fix(consistency): explicitly set font + label/link fix
+    
+    Use consistent styling between folders with `folderClickBehavior: "link"` and `"collapse`
+    
+    * Update quartz/components/styles/explorer.scss
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * Update quartz/components/styles/explorer.scss
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit 8eb1554b13532a2441b41d2018800c56cfa84ce9[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Thu Sep 21 18:54:33 2023 +0200
+
+    fix(explorer): display names for folders without frontmatter (#494)
+    
+    * fix(explorer): display name for folders without `index` file
+    
+    * docs(explorer): add section for folder display names
+
+[33mcommit dcdeae4e7bd527945b887ca347b3b4408c03055b[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Thu Sep 21 18:53:19 2023 +0200
+
+    docs(explorer): update default config + new example (#493)
+
+[33mcommit 48452231d5fcd14ef218928bde9ae7e5bc745f4a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 20 16:09:18 2023 -0700
+
+    perf: memoize filetree computation (#490)
+    
+    * perf: memoize filetree computation
+    
+    * format
+    
+    * var -> let
+
+[33mcommit 16d33fb77193710bede887d6a177d2144b78fb67[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 20 16:08:54 2023 -0700
+
+    feat: display name for folders, expand explorer a little bit (#489)
+    
+    * feat: display name for folders, expand explorer a little bit
+    
+    * update docs
+
+[33mcommit b029eeadabe0877df6ec11443c68743f1494bc40[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Wed Sep 20 22:55:29 2023 +0200
+
+    feat(explorer): improve accessibility and consistency (+ bug fix) (#488)
+    
+    * feat(consistency): use `all: unset` on button
+    
+    * style: improve accessibility and consistency for explorer
+    
+    * fix: localStorage bug with folder name changes
+    
+    * chore: bump quartz version
+
+[33mcommit 6a9e6352e88aa9ff18e5b33cf2de442a250bd960[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 20 13:52:45 2023 -0700
+
+    Revert "feat: Making Quartz available offline by making it a PWA (#465)"
+    
+    This reverts commit d6301fae90d9f922618bf0f413e273156731eef7.
+
+[33mcommit 70e029d151ccbb9aeab30a0f811b9f529b7f8818[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 20 13:52:29 2023 -0700
+
+    Revert "docs: wording changes for offline support"
+    
+    This reverts commit 52a172d1a4911080444ff797183e29ba8175741e.
+
+[33mcommit 0bad3ce7990aa4ef417128f9d74c2947fe5117fd[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 20 11:58:52 2023 -0700
+
+    docs: document enableToc
+
+[33mcommit 52a172d1a4911080444ff797183e29ba8175741e[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 20 11:40:36 2023 -0700
+
+    docs: wording changes for offline support
+
+[33mcommit d6301fae90d9f922618bf0f413e273156731eef7[m
+Author: Adam Brangenberg <adambrangenberg@proton.me>
+Date:   Wed Sep 20 20:38:13 2023 +0200
+
+    feat: Making Quartz available offline by making it a PWA (#465)
+    
+    * Adding PWA and chaching for offline aviability
+    
+    * renamed workbox config to fit Quartz' scheme
+    
+    * Documenting new configuration
+    
+    * Added missig umami documentation
+    
+    * Fixed formatting so the build passes, thank you prettier :)
+    
+    * specified caching strategies to improve performance
+    
+    * formatting...
+    
+    * fixing "404 manifest.json not found" on subdirectories by adding a / to manifestpath
+    
+    * turning it into a plugin
+    
+    * Removed Workbox-cli and updated @types/node
+    
+    * Added Serviceworkercode to offline.ts
+    
+    * formatting
+    
+    * Removing workbox from docs
+    
+    * applied suggestions
+    
+    * Removed path.join for sw path
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * Removed path.join for manifest path
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * Removing path module import
+    
+    * Added absolute path to manifests start_url and manifest "import" using baseUrl
+    
+    * Adding protocol to baseurl
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * Adding protocol to start_url too then
+    
+    * formatting...
+    
+    * Adding fallback page
+    
+    * Documenting offline plugin
+    
+    * formatting...
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * merge suggestion
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * formatting...
+    
+    * Fixing manifest path, all these nits hiding the actual issues .-.
+    
+    * Offline fallback page through plugins, most things taken from 404 Plugin
+    
+    * adding Offline Plugin to config
+    
+    * formatting...
+    
+    * Turned offline off as default and removed offline.md
+    
+    ---------
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit 27a6087dd5a25dd5031b86b9917adde6ef4b211a[m
+Author: rwutscher <richard.wutscher@gmail.com>
+Date:   Tue Sep 19 21:26:30 2023 +0200
+
+    fix: tag regex no longer includes purely numerical 'tags' (#485)
+    
+    * fix: tag regex no longer includes purely numerical 'tags'
+    
+    * fix: formatting
+    
+    * fix: use guard in findAndReplace() instead of expanding the regex
+
+[33mcommit 1bf7e3d8b3966590ebfa3418d6fb2ce6a520c846[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Sep 19 10:22:39 2023 -0700
+
+    fix(nit): make defaultOptions on explorer not a function
+
+[33mcommit cc31a40b0cb53cba7f51187cb6d68076c3f54c0f[m
+Author: David Fischer <david@konst.fish>
+Date:   Tue Sep 19 18:25:51 2023 +0200
+
+    feat: support changes in system theme (#484)
+    
+    * feat: support changes in system theme
+    
+    * fix: run prettier
+    
+    * fix: add content/.gitkeep
+
+[33mcommit 0d3cf2922618774fc397dca8cb92fcf76fb0db02[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Mon Sep 18 23:32:00 2023 +0200
+
+    docs: fix explorer example (#483)
+
+[33mcommit 6a2e0b3ad3a928247a03a76817d239e61cce0fe0[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sun Sep 17 22:04:44 2023 +0200
+
+    fix: bad visibility for last explorer item (#478)
+    
+    * fix: bad visibility for last explorer item
+    
+    * feat(explorer): add pseudo element for observer
+
+[33mcommit e67f409ec1fa36779f59a635eb3e16408275575d[m
+Merge: af41f34 4afb099
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sun Sep 17 21:36:04 2023 +0200
+
+    Merge pull request #479 from benschlegel/explorer-config
+    
+    feat(explorer): add config for custom sort/map/filter functions
+
+[33mcommit 4afb099bf3ec96e5d795e871ecb19575271c0714[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sun Sep 17 21:32:23 2023 +0200
+
+    docs: fix examples
+
+[33mcommit 6914d4b40caff901ccf3e9d9113c15129a68a80c[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sun Sep 17 21:20:09 2023 +0200
+
+    docs: fix intra page links
+
+[33mcommit af41f34bfd4126756e594ce4d6a46d4f4907754b[m
+Author: Christian Gill <gillchristiang@gmail.com>
+Date:   Sun Sep 17 20:02:00 2023 +0200
+
+    fix(slug): Handle question mark (#481)
+
+[33mcommit 7ac772fca8bf26c1023f905cdb77e6972a0d4b61[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sun Sep 17 19:29:20 2023 +0200
+
+    fix: darkmode scroll bars (#480)
+
+[33mcommit 5cc9253c41fda87ba473df7023567ba66ce3c32b[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sun Sep 17 16:41:23 2023 +0200
+
+    docs(explorer): write docs for new features
+
+[33mcommit 94a04ab1c9fd099c808f3f4e6633722e0d13ac85[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sun Sep 17 15:51:08 2023 +0200
+
+    fix(explorer): filter function in `ExplorerNode`
+
+[33mcommit 9358f73f1c939ce459d7835457527e35e1bdf857[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sun Sep 17 12:41:06 2023 +0200
+
+    fix: display name for file nodes
+
+[33mcommit f7029012dfb73ce04405bfe44e4e4d984818bf5f[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 21:58:38 2023 +0200
+
+    feat: black magic
+    
+    add config for `order` array, which determines the order in which all passed config functions for explorer will get executed in.
+    
+    functions will now dynamically be called on `fileTree` via array accessor (e.g. fileTree["sort"].call(...)) with corresponding function from options being passed to call)
+
+[33mcommit fea352849c6972da4b3b8935eb2e86f6cefc76ed[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 19:45:21 2023 +0200
+
+    fix: create deep copy of file passed into tree
+
+[33mcommit 3d8c470c0d298f720614318fb4c14575e72bbd2e[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 19:35:27 2023 +0200
+
+    feat(explorer): implement `map` fn argument
+    
+    Add a function for mapping over all FileNodes as an option for `Explorer`
+
+[33mcommit 31d16fbd2c82380af586e458b2c1ff29b90b53ae[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 19:18:59 2023 +0200
+
+    feat(explorer): integrate filter option
+
+[33mcommit 036a33f70bcabc17469956740847796a5f13b9ab[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 17:47:44 2023 +0200
+
+    fix: use correct import for `QuartzPluginData`
+
+[33mcommit 58aea1cb0791e18cd092d88de5374431eba7f1d3[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 17:28:58 2023 +0200
+
+    feat: implement filter function for explorer
+
+[33mcommit c7d3474ba8cb49ab0f1978216d80b08ec2c8e5d7[m
+Author: Ben Schlegel <ben5.schlegel@gmail.com>
+Date:   Sat Sep 16 12:40:19 2023 +0200
+
+    feat(explorer): add config to support custom sort fn
+
+[33mcommit 422ba5c36586c7ebc31141da8bb539b4157aa01a[m
+Author: Yuto Nagata <38714187+mouse484@users.noreply.github.com>
+Date:   Sat Sep 16 11:17:20 2023 +0900
+
+    fix: umami analytics date attribute (#477)
+
+[33mcommit 9ae6343dd0104d44e6bdf083572f987b70ba50c9[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Sep 15 10:33:38 2023 -0700
+
+    Revert "fix: use git dates by default, @napi/git is fast enough"
+    
+    This reverts commit 5dcb7e83fc3c8383ebbc84aac4553df4ad3ef59a.
+
+[33mcommit 5dcb7e83fc3c8383ebbc84aac4553df4ad3ef59a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Sep 15 09:46:06 2023 -0700
+
+    fix: use git dates by default, @napi/git is fast enough
+
+[33mcommit 91f9ae2d71d5c28ba7d2182eed5a9f77da1fbe8d[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Fri Sep 15 18:39:16 2023 +0200
+
+    feat: implement file explorer component (closes #201) (#452)
+    
+    * feat: add basic explorer structure„
+    
+    * feat: integrate new component/plugin
+    
+    * feat: add basic explorer structure
+    
+    * feat: add sort to FileNodes
+    
+    * style: improve style for explorer
+    
+    * refactor: remove unused explorer plugin
+    
+    * refactor: clean explorer structure, fix base (toc)
+    
+    * refactor: clean css, respect displayClass
+    
+    * style: add styling to chevron
+    
+    * refactor: clean up debug statements
+    
+    * refactor: remove unused import
+    
+    * fix: clicking folder icon sometimes turns invisible
+    
+    * refactor: clean css
+    
+    * feat(explorer): add config for title
+    
+    * feat: add config for folder click behavior
+    
+    * fix: `no-pointer` not being set for all elements
+    
+    new approach, have one `no-pointer` class, that removes pointer events and one `clickable` class on the svg and button (everything that can normally be clicked). then, find all children with `clickable` and toggle `no-pointer`
+    
+    * fix: bug where nested folders got incorrect height
+    
+    this fixes the bug where nested folders weren't calculating their total height correctly. done by adding class to main container of all children and calculating total
+    
+    * feat: introduce `folderDefaultState` config
+    
+    * feat: store depth for explorer nodes
+    
+    * feat: implement option for collapsed state + bug fixes
+    
+    folderBehavior: "link" still has bad styling, but major bugs with pointers fixed (not clean yet, but working)
+    
+    * fix: default folder icon rotation
+    
+    * fix: hitbox problem with folder links, fix style
+    
+    * fix: redirect url for nested folders
+    
+    * fix: inconsistent behavior with 'collapseFolders' opt
+    
+    * chore: add comments to `ExplorerNode`
+    
+    * feat: save explorer state to local storage (not clean)
+    
+    * feat: rework `getFolders()`, fix localstorage read + write
+    
+    * feat: set folder state from localStorage
+    
+    needs serious refactoring but functional (except folder icon orientation)
+    
+    * fix: folder icon orientation after local storage
+    
+    * feat: add config for `useSavedState`
+    
+    * refactor: clean `explorer.inline.ts`
+    
+    remove unused functions, comments, unused code, add types to EventHandler
+    
+    * refactor: clean explorer
+    
+    merge `isSvg` paths, remove console logs
+    
+    * refactor: add documentation, remove unused funcs
+    
+    * feat: rework folder collapse logic
+    
+    use grids instead of jank scuffed solution with calculating total heights
+    
+    * refactor: remove depth arg from insert
+    
+    * feat: restore collapse functionality to clicks
+    
+    allow folder icon + folder label to collapse folders again
+    
+    * refactor: remove `pointer-event` jank
+    
+    * feat: improve svg viewbox + remove unused props
+    
+    * feat: use css selector to toggle icon
+    
+    rework folder icon to work purely with css instead of JS manipulation
+    
+    * refactor: remove unused cfg
+    
+    * feat: move TOC to right sidebar
+    
+    * refactor: clean css
+    
+    * style: fix overflow + overflow margin
+    
+    * fix: use `resolveRelative` to resolve file paths
+    
+    * fix: `defaultFolderState` config option
+    
+    * refactor: rename import, rename `folderLi` + ul
+    
+    * fix: use `QuartzPluginData` type
+    
+    * docs: add explorer documentation
+
+[33mcommit 14cbbdb8a2f69ebc51cd53a82b50206c543778b0[m
+Author: Oskar Manhart <52569953+oskardotglobal@users.noreply.github.com>
+Date:   Thu Sep 14 05:55:59 2023 +0200
+
+    feat: display tag in graph view (#466)
+    
+    * feat: tags in graph view
+    
+    * fix: revert changing graph forces
+    
+    * fix: run prettier
+
+[33mcommit cce389c81d262d1d2a2bd8140c879efd68e3c6dd[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 13 11:28:53 2023 -0700
+
+    feat: note transclusion (#475)
+    
+    * basic transclude
+    
+    * feat: note transclusion
+
+[33mcommit 4461748a85b8795651d0c02451368dffff607938[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 13 09:43:14 2023 -0700
+
+    fix dont show html in search when rssFullHtml is true (closes #474)
+
+[33mcommit 6ecdcb5e24f2783e6fa73de69e848f0f319c4fc4[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Sep 12 22:55:50 2023 -0700
+
+    feat: resolve block references in obsidian markdown
+
+[33mcommit e3b879741b6d32f56e1d1bfd0bac57f0d68c1113[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Sep 12 21:44:03 2023 -0700
+
+    feat: rich html rss (closes #460)
+
+[33mcommit 60a3c543398aed8caf44b411a4dc10e8d1e26fcc[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Sep 12 21:29:57 2023 -0700
+
+    fix: 404 page styling for nested pages (closes #458)
+
+[33mcommit 71d81bde1d12aa386ec70be31cc86a37a7426bce[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Sep 12 19:18:44 2023 -0700
+
+    feat: rss limit (closes #459)
+
+[33mcommit a19df64be8423063c2484ab35300fb0bef324a14[m
+Author: hcplantern <38579760+HCPlantern@users.noreply.github.com>
+Date:   Tue Sep 12 14:00:21 2023 +0800
+
+    fix: callout parsing (#469)
+
+[33mcommit 4e23e6724493a8d112c6ff22e14cf4aabd5e9af1[m
+Author: Oskar Manhart <52569953+oskardotglobal@users.noreply.github.com>
+Date:   Mon Sep 11 08:11:42 2023 +0200
+
+    feat: plugin for remark-breaks (#467)
+    
+    * feat: plugin for remark-breaks
+    
+    * fix: update package-lock.json
+    
+    * fix: styling
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+    
+    * Update linebreaks.ts
+    
+    * Update index.ts
+    
+    ---------
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit a66c239797e3e80e2dc8b7059eee8c51bcf4ca8f[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Sep 10 23:07:17 2023 -0700
+
+    ci: print bundleInfo
+
+[33mcommit 53f1c88738550eb2646cc0a03469dc230839a258[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Fri Sep 8 09:29:57 2023 -0700
+
+    fix: more lenient date parsing for templates
+
+[33mcommit 06df00b18621f08a211bec33f566ecb7ef4ec22e[m
+Author: Stefano Cecere <stefano.cecere@krur.com>
+Date:   Thu Sep 7 17:13:41 2023 +0200
+
+    typo (it's draft, not drafts) (#456)
+
+[33mcommit 2525bfbab5553f970997ea3c60af180cbef1fdd2[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 6 22:24:15 2023 -0700
+
+    fix: links to index not showing in graph (closes #450)
+
+[33mcommit 828aa71fe34aae675a7552957e8a062c82f595f6[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 6 21:47:59 2023 -0700
+
+    fix: escape encoding for titles in rss
+
+[33mcommit ef1ead31dccd05f4275405b843ff47fa28a5116d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 6 21:31:01 2023 -0700
+
+    fix: encodeuri for slugs in rss
+
+[33mcommit 989bee597987bba2aeae4266cb32ac8e899f638c[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 6 21:08:08 2023 -0700
+
+    docs: correct field for ignorePatterns
+
+[33mcommit 8d6029b7b844044d06fe17de89db6881954a8fec[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 6 21:02:21 2023 -0700
+
+    feat: 404 page emitter
+
+[33mcommit 2d52eba4133293a27f6df98c252785ba4ddee575[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Wed Sep 6 20:25:38 2023 -0700
+
+    fix: dont transform external links
+
+[33mcommit 6ef4246cf186414d1b8ee868cfa9d24314f0bc0a[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Mon Sep 4 07:36:30 2023 +0200
+
+    docs: update `full-text-search.md` (#447)
+
+[33mcommit 616a7f148a283b2fd7c5204c60ddf1b08f42d125[m
+Author: Dr Kim Foale <kim@gfsc.studio>
+Date:   Mon Sep 4 05:29:58 2023 +0100
+
+    docs: Make it clearer that wikilinks go to paths not page titles (#448)
+
+[33mcommit e8a04efaf1b82560cbcf7694ac6c7dda1c82612f[m
+Author: Adam Brangenberg <adambrangenberg@proton.me>
+Date:   Mon Sep 4 06:28:57 2023 +0200
+
+    feat(analytics): Support for Umami (#449)
+
+[33mcommit 7e42be8e46501c752dda9bd174fb93ea9dccec22[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sun Sep 3 18:32:46 2023 +0200
+
+    feat(search): add arrow key navigation (#442)
+    
+    * feat(search): add arrow navigation
+    
+    * chore: format
+    
+    * refactor: simplify arrow navigation
+    
+    * chore: remove comment
+    
+    * feat: rework arrow navigation to work without state
+    
+    * feat: make pressing enter work with arrow navigation
+    
+    * fix: remove unused css class
+    
+    * chore: correct comment
+    
+    * refactor(search): use optional chaining
+
+[33mcommit 8c354f6261dda6d9761f594002db53c9d7a8e8e2[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sun Sep 3 18:06:05 2023 +0200
+
+    fix: clipboard button visible in search (#445)
+
+[33mcommit 505673acd71e6b023abae19c706a736b257cff2a[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Sep 2 18:07:26 2023 -0700
+
+    feat: pluralize things in lists
+
+[33mcommit 23f43045c49f17fe5ace480f7026855acf2a30b8[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Fri Sep 1 23:12:32 2023 +0200
+
+    fix(search): matches getting highlighted in title (#440)
+
+[33mcommit 90dac31216b5d3f59e65ec5778e21a308a744e11[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Fri Sep 1 19:09:58 2023 +0200
+
+    feat: Implement search for tags (#436)
+    
+    * Quartz sync: Aug 29, 2023, 10:17 PM
+    
+    * style: add basic style to tags in search
+    
+    * feat: add SearchType + tags to search preview
+    
+    * feat: support multiple matches
+    
+    * style(search): add style to matching tags
+    
+    * feat(search): add content to preview for tag search
+    
+    * fix: only display tags on tag search
+    
+    * feat: support basic + tag search
+    
+    * refactor: extract common `fillDocument`, format
+    
+    * feat: add hotkey to search for tags
+    
+    * chore: remove logs
+    
+    * fix: dont render empty `<ul>` if tags not present
+    
+    * fix(search-tag): make case insensitive
+    
+    * refactor: clean `hideSearch` and `showSearch`
+    
+    * feat: trim content similar to `description.ts`
+    
+    * fix(search-tag): hotkey for windows
+    
+    * perf: re-use main index for tag search
+
+[33mcommit 2d6dc176c3e1fbb520a5da1beb60bbb1d8e948ba[m
+Author: Pelayo Arbués <gonzalezpelayo@gmail.com>
+Date:   Thu Aug 31 21:12:06 2023 +0200
+
+    Adds Pelayo Arbues to showcase (#435)
+
+[33mcommit b213ba45e2e706332e057b131adc946f882f090b[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Thu Aug 31 20:55:04 2023 +0200
+
+    fix: regex for matching highlights (closes #437) (#438)
+    
+    * fix:  regex for matching highlights
+    
+    * fix: regex for empty highlights
+
+[33mcommit 5fa6fc97899c905b6fbc14fa1d24334f3e68fa77[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Tue Aug 29 10:37:00 2023 -0700
+
+    fix: aliasredirects not using full path, add permalink support
+
+[33mcommit 1cc09ef76db129fb3670e95560312adeefab913c[m
+Author: Jeffrey Fabian <jeffrey.fabian61@gmail.com>
+Date:   Tue Aug 29 13:14:54 2023 -0400
+
+    feat: support kebab-case and nested tags in Obsidian-flavored Markdown tag-in-content parsing (#425)
+    
+    * enhancement: support kebab-case and nested tags in ofm transformer
+    
+    * update regex/capture groups to allow for (arbitrarily) nested values and tags of only -/_
+    
+    * Update quartz/plugins/transformers/ofm.ts
+    
+    ---------
+    
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit c35cd422c65a58f1069302aad0cf9eef7f93d987[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Mon Aug 28 19:00:49 2023 +0200
+
+    fix: correct graph labels for `index.md` nodes (#431)
+
+[33mcommit 082fdf2e8098ef6bcb46a7dfabf8c6b9fd096346[m
+Author: Jeremy Press <jeremypress1@gmail.com>
+Date:   Sun Aug 27 20:57:19 2023 -0700
+
+    Fix typo :) (#430)
+
+[33mcommit b6b1dabde0f63ca0ae743aa7f4266ca892d7b5e5[m
+Author: Jeremy Press <jeremypress1@gmail.com>
+Date:   Sun Aug 27 17:39:42 2023 -0700
+
+    feat: support configurable ws port and remote development (#429)
+    
+    Co-authored-by: Jeremy Press <jeremy@replit.com>
+    Co-authored-by: Jacky Zhao <j.zhao2k19@gmail.com>
+
+[33mcommit 4b89202f7e834cf8b5c5aa39e8f1778706492085[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Mon Aug 28 00:59:51 2023 +0200
+
+    cleanup: rework cli to allow invoking create and build outside of cli (#428)
+    
+    * refactor: move `bootstrap-cli.mjs` tp cli
+    
+    also update reference in docs
+    
+    * refactor(cli): move build handler to `cli-functions`
+    
+    * refactor(cli): move create to handler + helpers
+    
+    * refactor(cli): extract arg definitions
+    
+    * refactor: rename handlers and helpers
+    
+    * refactor(cli): move update, await handlers
+    
+    * refactor(cli): create constants, migrate to helpers
+    
+    * refactor(cli): migrate `restore`
+    
+    * refactor(cli): migrate `sync`
+    
+    * format
+    
+    * refactor(cli): remove old imports/functions
+    
+    * refactor(cli): remove unused imports + format
+    
+    * chore: remove old log statement
+    
+    * fix: fix imports, clean duplicate code
+    
+    * fix: relative import
+    
+    * fix: simplified cacheFile path
+    
+    * fix: update cacheFile import path
+    
+    * refactor: move bootstrap-cli to quartz
+    
+    * format
+    
+    * revert: revert path to bootstrap-cli
+    
+    * ci: re-run
+    
+    * ci: fix  execution permission
+
+[33mcommit 52ca312f41ee6da5202cd9632d8501340ada3a67[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sun Aug 27 12:27:42 2023 -0700
+
+    fix: slugify tag on page before adding (closes #411)
+
+[33mcommit c91e62c376d481534d89084e5c04846878dff6d3[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sun Aug 27 02:19:45 2023 +0200
+
+    Fix search bar after navigate (#424)
+
+[33mcommit ad4145fb10dbf32d8f99e1de555339dba0979f72[m
+Author: Ben Schlegel <31989404+benschlegel@users.noreply.github.com>
+Date:   Sat Aug 26 22:21:44 2023 +0200
+
+    feat: support CLI arguments for `npx quartz create` (#421)
+    
+    * feat(cli): add new args for content + link resolve
+    
+    * feat(cli): validate cmd args
+    
+    * feat(cli): add chalk + error code to errors
+    
+    * feat(cli): support for setup/link via args
+    
+    * refactor(cli): use yargs choices instead of manual
+    
+    Scrap manual check if arguments are valid, use yargs "choices" field instead.
+    
+    * feat(cli): add in-dir argument+ handle errors
+    
+    add new "in-directory" argument, used if "setup" is "copy" or "symlink" to determine source. add error handling for invalid permutations of arguments or non existent path
+    
+    * feat(cli): dynamically use cli or provided args
+    
+    use "in-directory" arg as `originalFolder` if available, otherwise get it from manual cli process
+    
+    * run format
+    
+    * fix: use process.exit instead of return
+    
+    * refactor: split CommonArgv and CreateArgv
+    
+    * refactor(cli): rename create args, use ${} syntax
+    
+    * fix(cli): fix link resolution strategy arg
+    
+    * format
+    
+    * feat(consistency): allow partial cmd args
+
+[33mcommit 74c3ebb7bd7ef126246f8ea03565db73cd5e7f38[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Aug 26 10:48:34 2023 -0700
+
+    style: fix mulitline callout styling
+
+[33mcommit e3265f841637de197e5cf4a5471372b5178f1e4d[m
+Author: Jacky Zhao <j.zhao2k19@gmail.com>
+Date:   Sat Aug 26 10:42:55 2023 -0700
+
+    docs: simplify oxhugo page
